@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Zero_Day Bio</title>
 <style>
-  /* Background */
+
   body, html {
     margin: 0; padding: 0; height: 100%;
     font-family: "Courier New", Courier, monospace;
@@ -17,7 +17,7 @@
     overflow-x: hidden;
   }
 
-  /* ASCII full screen intro */
+ 
   .ascii-screen {
     position: fixed;
     top: 0; left: 0;
@@ -50,7 +50,6 @@
     text-shadow: 0 0 8px #ff0055;
   }
 
-  /* Side image panels */
   .bio-content::before, .bio-content::after {
     content: '';
     position: absolute;
@@ -71,7 +70,7 @@
     right: -130px;
   }
 
-  /* Frosted glass main container */
+ 
   .bio-content {
     position: relative;
     max-width: 1000px;
@@ -168,7 +167,7 @@
 ⠀⠀⠀⠀⠙⠛⠉⠛⠒⠒⠒⠉⠉⠈⠛⠛⠛⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠛⡛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 </div>
 
-<!-- Bio -->
+
 <div class="bio-content" id="bioContent" style="display:none;">
   <h1>Welcome to Zero_Day’s Terminal</h1>
 
@@ -312,7 +311,7 @@ Puerto Rico libre. Puerto Rico vivo.<br/>
 </div>
 
 <script>
-  // ASCII splash logic
+
   window.onload = () => {
     setTimeout(() => {
       const ascii = document.getElementById('asciiScreen');
@@ -349,8 +348,8 @@ Puerto Rico libre. Puerto Rico vivo.<br/>
   document.getElementById('playBtn').addEventListener('click', () => {
     const iframe = document.getElementById('sc-player');
     iframe.src = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2118700743&auto_play=true";
-    iframe.style.display = "none"; // keep hidden
-    // disable button after click
+    iframe.style.display = "none"
+    
     const btn = document.getElementById('playBtn');
     btn.textContent = "Playing...";
     btn.disabled = true;
