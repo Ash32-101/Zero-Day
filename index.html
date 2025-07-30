@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Zero_Day Bio</title>
+<style>
+  /* Background */
+  body, html {
+    margin: 0; padding: 0; height: 100%;
+    font-family: "Courier New", Courier, monospace;
+    color: #00ffcc;
+    background: 
+      linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url('https://i.pinimg.com/1200x/d9/20/c5/d920c599e5aa66ac201e15c1030fa938.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden;
+  }
+
+  /* ASCII full screen intro */
+  .ascii-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 40px;
+    white-space: pre-wrap;
+    font-size: 15px;
+    line-height: 16px;
+    font-weight: bold;
+    color: #00ff00;
+    user-select: none;
+    overflow: auto;
+    text-align: center;
+    flex-direction: column;
+    transition: opacity 1.5s ease;
+  }
+
+  .ascii-screen::before {
+    content: "Zero Day";
+    font-size: 40px;
+    font-weight: bold;
+    color: #ff0055;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px #ff0055;
+  }
+
+  /* Side image panels */
+  .bio-content::before, .bio-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 100%;
+    background: url('https://i.pinimg.com/736x/98/32/a7/9832a7cd33605f90cee8cfc57a6aa472.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.9;
+    z-index: 1;
+  }
+
+  .bio-content::before {
+    left: -130px;
+  }
+
+  .bio-content::after {
+    right: -130px;
+  }
+
+  /* Frosted glass main container */
+  .bio-content {
+    position: relative;
+    max-width: 1000px;
+    margin: 80px auto;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 255, 204, 0.4);
+    padding: 50px;
+    opacity: 0;
+    transition: opacity 2s ease-in;
+    z-index: 2;
+  }
+
+  .bio-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+
+  details {
+    margin-bottom: 25px;
+    border: 1px solid #00ffcc;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background: rgba(0, 255, 204, 0.07);
+    z-index: 2;
+    position: relative;
+  }
+
+  summary {
+    font-weight: bold;
+    font-size: 1.4em;
+    cursor: pointer;
+  }
+
+  .terminal-bio {
+    border: 2px solid #00ffcc;
+    padding: 25px;
+    background-color: rgba(17, 17, 17, 0.9);
+    font-size: 1.2em;
+    animation: typing 6s steps(50, end), blink 0.75s step-end infinite;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    border-radius: 10px;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink {
+    50% { border-right: 2px solid transparent }
+    100% { border-right: 2px solid #ff0000 }
+  }
+
+  .bottom-quote {
+    margin-top: 40px;
+    font-size: 1.2em;
+    font-style: italic;
+    text-align: center;
+    color: #ffcccc;
+    text-shadow: 0 0 8px #00ffcc;
+  }
+</style>
+</head>
+<body>
+
+<div class="ascii-screen" id="asciiScreen">
+⠀⠀⠀⢀⣀⣀⠀⣀⣀⣀⡀⠀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣄⡀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⣀⣤⣶⣿⣿⣿⣶⠿⠉⢩⡄⣼⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⣿⣿⡖⠀⠀⣀⣀⣤⣴⣶⣄⠈⠁⠉⠻⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢠⡾⠋⠡⠞⠉⠩⠟⠁⠀⣰⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣶⠚⠛⠛⠯⣄⡀⠀⠙⠀⠀⠀⠹⣿⢧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢀⡿⠁⠀⣶⠋⠀⠀⠀⠀⢀⣿⢇⣿⠇⣠⠀⠀⠀⠀⠀⠀⠀⣀⣀⣤⡤⠤⠤⠀⠙⣯⡿⠁⠀⠀⠀⠙⠦⠀⠀⠀⠀⠀⠈⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢸⡇⠀⢸⣇⠀⠀⠀⠀⡠⣼⣿⣼⡏⠐⠃⠀⠀⠀⢀⣤⣶⢟⣩⣤⣀⠀⠀⠀⠀⠀⠘⠻⣏⣉⣑⡒⠢⣄⠀⠀⠀⠀⠀⠀⢹⡏⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢷⡄⠀⠻⢧⣤⣤⠞⢠⣿⣿⡟⠀⠀⠀⢤⠀⠾⠟⠋⣰⣫⡿⠛⣛⢻⡆⠀⠀⠀⠀⣠⠞⠉⠀⠉⢧⣈⡇⠀⠈⢧⠀⠀⠈⣿⣷⣠⡞⢛⡉⠛⠶⣄⠀⠀⠀⠀⠀⠀
+⠀⠈⠻⣷⣄⣰⠟⢁⣴⣿⣿⠟⠀⠀⠀⠀⠈⠂⠀⠀⠀⠻⣿⠀⣿⣿⡿⠀⠀⠀⠀⢰⣿⡀⠀⢀⣾⣿⣿⠃⠀⠀⢨⡆⠀⠀⠘⠎⠛⢻⣿⣿⠀⠀⠈⢷⡀⠀⠀⠀⠀
+⠀⠀⠀⠈⠻⣍⣩⣿⣿⣿⠁⢀⣴⡶⠒⢶⣄⠀⠀⠀⠀⠀⠉⠒⠋⢻⡿⠀⠀⠀⠀⣿⣿⡇⡀⠰⠿⣿⣧⠆⠀⠀⢀⠇⠀⠀⠀⠀⠀⣸⠻⣿⠀⠀⠀⠈⣿⣹⣦⡀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⡀⣾⠋⣀⣠⣀⠙⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣧⠀⠀⠀⠀⠀⢀⣴⠏⠀⢠⣄⣠⠤⠚⠁⠀⠁⠀⠀⠀⣰⣿⣿⣿⠛⢦
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢷⡇⣾⣷⣾⣿⠶⢼⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⠿⣷⣦⣤⡤⠶⠻⠋⠀⠀⠀⠉⠙⠂⠀⠠⠠⢀⣀⣠⣼⣛⠛⢿⠁⠀⠘
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⠧⢸⣿⡟⠉⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣤⠌⠉⠛⠳⠀⠀⣀⣀⣤⣀⠀⠀⣸⣟⡛⠛⠉⢿⣿⣶⡄⣀⣰
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣧⡀⠛⠁⠀⣟⠀⠀⠀⠀⠶⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣧⣤⣶⣶⣦⣀⣀⣈⣿⣿⣧⡼⠉⠉⠀⠀⠀⡼⠿⠏⡇⢹⣿
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣷⠀⠀⠀⢹⠻⢶⡀⠀⠀⠀⠀⣀⣀⡀⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣾⣿⣿⣷⣄⡀⠀⠀⠀⠀⠠⠚⠁⠀⢰
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣆⠀⠀⠀⠀⠀⠀⠀⢀⡴⠋⢁⣈⣽⣶⣤⣀⠀⠻⣿⣿⣿⣿⠿⠻⠟⠋⠉⠻⣿⣿⣿⣿⣿⣿⣿⣿⣶⣤⣤⣀⣀⣀⣤⣤⡟
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣦⡀⠀⠀⠀⠀⡞⠋⣠⠞⢉⣤⣾⣿⣿⣿⣇⠀⠈⣽⠟⠁⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣷⣄⡀⠀⠀⠳⣴⣷⣾⣿⣿⣿⠟⢁⣾⣿⣤⠞⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠿⣿⣿⣦⣀⠀⠈⠻⣿⡏⢉⣠⣴⡿⢋⣾⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠛⠛⠛⠋⠉⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢀⣴⣾⠋⢻⣶⡄⠀⢀⡟⣼⡾⠟⠋⣻⣿⣿⣷⣦⣄⠘⢿⡟⣛⣩⣴⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⣴⠿⠋⢹⣇⣀⢀⣿⡴⠋⣾⠋⠀⠀⡀⣿⡿⠷⠘⢿⣿⣿⣦⣍⠉⠉⠁⡼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢰⣧⠀⠀⠀⢙⣛⢋⡉⠀⢸⠃⠀⠀⢰⣧⠻⣇⠀⠀⠘⢿⣿⣿⣿⣿⣶⣴⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠸⣿⣧⣀⠀⠀⠀⠹⠃⢀⣸⡀⠀⢦⠀⠻⣷⣌⠓⠀⠀⠀⠈⢿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠙⠛⠉⠛⠒⠒⠒⠉⠉⠈⠛⠛⠛⠓⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠛⡛⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+</div>
+
+<!-- Bio -->
+<div class="bio-content" id="bioContent" style="display:none;">
+  <h1>Welcome to Zero_Day’s Terminal</h1>
+
+  <details>
+    <summary> Who I am </summary>
+    <p>I’m Zero_Day, Punk anarchist, hacker, poet, barista, dreamer. I am from Puerto Rico, i do alot of coding and ethical hacking and i am currently on the CTF team THEM?!, and i also like progresive metal:3</p>
+  </details>
+
+  <details>
+    <summary>My Poems</summary>
+    <p><em>“Poem Sangui(ne)”</em><br/>
+      I want them like venom wants veins, smooth, hidden, holy. She moves like sacred geometry, but I am a misaligned symmetry etched in ash, burned into algorithms. She is whole numbers, perfectly divisible by grace. I am a cursed fraction three-fourths brittle bones, two-sevenths in the heavens, the rest a recursive ghost haunting my own source code. Her laugh is a prism, mine is a cipher even angels refuse to decode. I tried to decrypt her eyes...SHA-512 reflections of a world where I’m not a threat model. But my hands shake from the weight of failed wings and abandoned dreams, like TOR nodes...Oh No. She sips vanilla fraps and sunlight, I inject caffeine like morphine, black, bitter, brewed in a flask. She dreams in watercolors, I encrypt Atlantic scholars. I tried to mirror her symmetry, but my architecture is broken, my OS runs on old wounds, old runes, old tombs. She speaks in soft tones, a melatonin hymn, and I respond in silence, tongue drenched in arsenic and psalms for the damned.<br/></p>
+      <p> </p> 
+       <em>“Burn”</em><br/>
+     Who made you like this?
+Who encrypted your dark gospel in body language<br/>
+where your hands speak in holy riddles <br/>
+where your mouth tastes like prophecy<br/>
+where your eyes write programs I can’t quite allocate?<br/>
+
+Synapses snap back in blissful anguish<br/>
+Your gospel hums beneath my skin<br/>
+Every glance is a scar I want to trace<br/>
+Every word is a lie I want to believe<br/>
+
+Half algorithm, half deity<br/>
+you breath between salvation and ruin<br/>
+Tell me you met me in past lives,<br/>
+past lies, past what’s eating me from the inside, darlin.<br/>
+Tell me I was meant to follow your scarlet trail<br/>
+to the last few drops from the Holy Grail<br/>
+
+Diamonds in the trees<br/>
+Pentagrams in the night sky<br/>
+Chemtrails spell my name across the dark<br/>
+Blacklit paradise<br/>
+where no saints walk<br/>
+where no angels speak anymore<br/>
+
+Lipstick like blood<br/>
+Pink nails on the throat of the night<br/>
+One eye on the door<br/>
+One eye on a rail<br/>
+One on the road that leads me to you,Dear<br/>
+
+Your red flags wave like banners<br/>
+and I wear them like silk<br/>
+Your rose gold chains leave bruises I beg for<br/>
+Your cut glass smile makes me bleed<br/>
+and I call it holy, Now<br/>
+
+Let’s choke on the past,<br/>
+let’s feast on what’s left,<br/>
+let’s burn the future<br/>
+until there’s nothing left but ash, Now<br/>
+
+Make it real<br/>
+Make it hurt<br/>
+Because anything’s better<br/>
+than the way I feel right now.<br/>
+
+You wanted a reflection<br/>
+a bitter deception,<br/>
+someone to set you free<br/>
+But I wanted the same <br/>
+my redemption, your ascension.<br/>
+So I’ll take what I want, then leave <br/>
+or maybe I’ll stay<br/>
+and let the eclipse swallow us both, Now<br/>
+
+Diamonds in the trees<br/>
+Pentagrams in the night sky<br/>
+Chemtrails across a dying heaven.<br/>
+You make me wish I could disappear <br/>
+but I won’t, Now
+
+No more little angels on my shoulders<br/>
+Just the edge of the blade<br/>
+Just the time<br/>
+Just the place<br/>
+
+I’m done asking<br/>
+Show me what you are<br/>
+Make me yours<br/>
+  </details>
+
+  <details>
+    <summary>Puerto Rico</summary>
+    <p>
+      Despierta, Borinquen, ya basta el encierro,<br/>
+la patria no es jaula ni estatua de hierro.<br/>
+Tu suelo lo sangran con leyes ajenas,<br/>
+te venden al dólar, te compran con penas.<br/>
+
+Tus montes aún cantan la vieja promesa,<br/>
+la ceiba resiste, la brisa protesta.<br/>
+La historia nos mira con ojos de fuego,<br/>
+¿seremos esclavos, o el trueno del pueblo?<br/>
+
+De Washington bajan cadenas doradas,<br/>
+pero somos libres en nuestras miradas.<br/>
+No somos colonia, ni peón, ni despojo,<br/>
+somos un volcán con ceniza en los ojos.<br/>
+
+Levanta la voz, jíbaro dormido,<br/>
+despierta el machete, renace el latido.<br/>
+No más banderitas al lado de extraños,<br/>
+la nuestra ondea con siglos en manos.<br/>
+
+Queremos justicia, no migas del amo,<br/>
+no somos mendigos, ni esclavos ni callos.<br/>
+Queremos futuro, sembrado en lo nuestro,<br/>
+un Borikén libre, completo, sin dueños.<br/>
+
+No es odio, es amor lo que aquí te grita,<br/>
+que libre camines, que libre respires.<br/>
+Que el mar te devuelva el canto perdido…<br/>
+Puerto Rico libre. Puerto Rico vivo.<br/>
+
+
+    </p>
+  </details>
+
+  <details>
+    <summary> The Real ones</summary>
+    <p>Sidd, TR33, Nitai, Stello, Scraps, Fallen, Milk, beetle, Rose, Null, Mike, Fike, Hev, and franny</p>
+  </details>
+
+  <details>
+    <summary> Terminal Bio </summary>
+    <div class="terminal-bio">
+      name: Zero_Day<br/>
+      Hobbies: Ethical Hacking, Writing, Coding, Listening to music, Playing electric guitar.<br/>
+      tools: Kali, Arch, caffeine, and Rose<br/>
+      status: I inject caffeine like morphine.<br/>
+      motto: "Everything will kill you...So pick something fun"
+    </div>
+  </details>
+
+  <div class="bottom-quote">“You have been here before, Haven’t you?”</div>
+</div>
+
+<script>
+  // ASCII splash logic
+  window.onload = () => {
+    setTimeout(() => {
+      const ascii = document.getElementById('asciiScreen');
+      const bio = document.getElementById('bioContent');
+      ascii.style.opacity = 0;
+      setTimeout(() => {
+        ascii.style.display = 'none';
+        bio.style.display = 'block';
+        setTimeout(() => {
+          bio.style.opacity = 1;
+        }, 50);
+      }, 1500);
+    }, 5000);
+  }
+</script>
+<button id="playBtn" style="position: fixed; bottom: 20px; right: 20px; 
+  background: #00ffcc; color: #000; border: none; padding: 10px 20px; 
+  font-weight: bold; border-radius: 8px; cursor: pointer; z-index: 2000;">
+  Play Music
+</button>
+
+<iframe 
+  id="sc-player"
+  width="0" 
+  height="0" 
+  style="display:none;" 
+  scrolling="no" 
+  frameborder="no" 
+  allow="autoplay" 
+  src="">
+</iframe>
+
+<script>
+  document.getElementById('playBtn').addEventListener('click', () => {
+    const iframe = document.getElementById('sc-player');
+    iframe.src = "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2118700743&auto_play=true";
+    iframe.style.display = "none"; // keep hidden
+    // disable button after click
+    const btn = document.getElementById('playBtn');
+    btn.textContent = "Playing...";
+    btn.disabled = true;
+    btn.style.cursor = "default";
+    btn.style.opacity = "0.6";
+  });
+</script>
+
+</body>
+</html>
